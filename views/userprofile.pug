@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+
+  h1= title 
+
+  p 
+    a(href='/') Home
+
+  p Username: #{user.username} 
+  p Name: #{user.firstname} #{user.lastname} 
+  
+  if user.isMember
+    p Member: Yes 
+  else 
+    p Member: No
+
+  if !user.isMember
+    form(method='POST')
+      input(type='hidden' name='isMember' value='true')
+      button(type='submit') Click here to become a member

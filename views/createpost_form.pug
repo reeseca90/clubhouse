@@ -1,0 +1,28 @@
+extends layout 
+
+block content 
+
+  h1= title 
+
+  p
+    a(href='/') Home
+  p 
+    a(href='/posts') Back to all posts
+
+  if errors
+    ul 
+      for error in errors 
+        li!= error.msg
+
+  if (user.isMember)
+    form.newPost(method='POST')
+      label(for='content') Text: 
+      textarea(name='content' id='content' rows='4' required='true')
+
+      input(type='hidden' name='createdBy' value=user.username)
+      input(type='hidden' name='dateTime' value=Date())
+
+      button(type='submit') Create Post
+  
+  else 
+    p You are not authorized to post unless you are a member

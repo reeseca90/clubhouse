@@ -1,0 +1,66 @@
+$bg-color: rgb(241, 241, 241);
+$bordercolor: rgb(100, 100, 100);
+$link-color: rgb(211, 0, 211);
+
+body {
+  padding: 50px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: $bg-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: $link-color;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.viewpost {
+  border: 1px solid $bordercolor;
+  padding: 10px;
+}
+
+.onePost {
+  margin-top: 40px;
+  padding: 5px 20px;
+  border: 1px solid $bordercolor;
+  
+  p {
+    font-size: 18px;
+  }
+  .small {
+    font-size: 11px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 400px;
+  button {
+    width: 100px;
+    margin-top: 40px;
+    border: 2px solid $bordercolor;
+    border-radius: 5px;
+    font-weight: boldcolor;
+  }
+  button:active {
+    transform: translateY(1px);
+    background-color: $bordercolor;
+  }
+}
+
+.small {
+  font-size: 11px;
+  color: $bordercolor;
+}

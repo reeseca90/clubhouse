@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+
+  h1= title 
+
+  p
+    a(href='/') Home
+  p  
+    a(href='/posts/create') Create new post
+
+  ul 
+    each post in posts
+      li.viewpost
+        p #{post.content}
+        if user != undefined && user.isMember
+          p.small Author: #{post.createdBy}, Created: #{post.date_formatted}
+        else 
+          p.small Author: Anonymous, Created: #{post.date_formatted}
+        p.small
+          a(href=post.url) View Post

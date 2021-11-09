@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+
+  h1= title 
+
+  p
+    a(href='/') Home
+
+  p
+    a(href='/posts') Back to all posts
+
+  div.onePost
+    if user != undefined && user.isMember
+      p #{post.content}
+    else 
+      p.small Author: Anonymous
+    p.small Author: #{post.createdBy}
+    p.small Created: #{post.dateTime}
+
+  if user != undefined && user.isAdmin
+  form(method='POST')
+    button(type='submit') Delete post

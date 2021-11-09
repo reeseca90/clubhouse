@@ -2,4 +2,41 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  if !user
+    p Welcome to the #{title}
+
+  if user 
+    p Welcome to the #{title}, !{user.username}
+
+    if (user.isMember)
+      p You are a member!
+
+      a(href='/posts/create') Create new post
+
+      p
+        a(href='/posts') See posts as a member
+
+      p
+        a(href=user.url) Go to your profile
+
+    else 
+      p You are not a member!
+
+      p
+        a(href=user.url) Go to your profile to activate membership
+
+      p 
+        a(href='/posts') See posts as a user
+
+    p
+      a(href='/logout') Log out
+
+  else
+    p 
+      a(href='/signup') Sign up
+
+    p
+      a(href='/login') Login
+
+    p 
+      a(href='/posts') See posts as anonymous
